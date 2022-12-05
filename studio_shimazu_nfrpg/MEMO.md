@@ -92,6 +92,28 @@ Slider オブジェクトを作成して、適当なスクリプトをアタッ�
   * 例えば、Player オブジェクトにPlayerHP オブジェクトをアタッチする、など
 * スクリプト側で、そのオブジェクトのプロパティとしてコンポーネントを取得する
 
+```C#
+public class Player : MonoBehaviour
+{
+  public GameObject hpGameObject;
+  void Start()
+  {
+    hpGameObject.GetComponent<Text>().text = "50";
+  }
+}
+
+// ↓でも同等の操作が可能
+// 始めから、対象のオブジェクトを取り扱う型が分かっている場合？
+{
+  public Text hpText;
+  void Start()
+  {
+    hpText.GetComponent<Text>().text = "50";
+    hpText.text = "50";
+  }
+}
+```
+
 
 # 13. 演習
 今までの復習をかねた演習
@@ -105,3 +127,42 @@ Slider オブジェクトを作成して、適当なスクリプトをアタッ�
 * cube を動かす
 
 続きは、演習の答え合わせから(5:30~)
+
+
+12/05 答え合わせ
+
+別解
+```C#
+public class Player : MonoBehaviour
+{
+  // Playerオブジェクトの transform にアクセスする場合、transform から直接操作できる
+
+  // public Transform player; ← 不要
+  void Update()
+  {
+    // transform = GetComponent<Transform>(); ← 不要
+    transform.position += new Vector3(0.3f, 0, 0);
+  }
+}
+
+// ↓でも同等の操作が可能
+{
+  public GameObject hpGameObject;
+  void Start()
+  {
+    // object 名から名前解決する
+    GameObject.Find("HPSlider").GetComponent<Text>().text = "50";
+  }
+}
+```
+
+
+# 14. セクションのまとめ
+次の章から、C#の基礎について学習
+* 変数、if文、for文など。。
+
+
+# 15. ショートカットキーの解説
+レビューで、ショートカットキーを紹介して欲しいとあったため、追加したらしい
+
+
