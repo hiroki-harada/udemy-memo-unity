@@ -166,3 +166,77 @@ public class Player : MonoBehaviour
 レビューで、ショートカットキーを紹介して欲しいとあったため、追加したらしい
 
 
+# 16. C# の基礎：始めに
+演習課題が解けるなら、ここはスキップしてもOK
+
+
+# 17. コンソールとコメントアウト
+```C#
+// コメント
+Debug.Log("ログ出力、コンソールをクリックすると、該当のログ出力処理へコードジャンプできる");
+```
+
+# 18. 変数の宣言
+特筆事項なし
+
+# 19. 変数の型
+C# におけるstring も参照型だが、`string.Equals()`が`==`をオーバーライドしている
+
+そのため`==`でも比較が可能
+```C#
+string message = "Hello, World!";
+Console.WriteLine(message.Equals("Hello, World!"));
+Console.WriteLine(message == "Hello, World!");
+```
+https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/builtin-types/built-in-types
+
+また、gitpod におけるC#プロジェクトの実行方法は、
+```bash
+dotnet biuld path/to/projectFolder # コンパイル
+dotnet path/to/projectFolder/bin/Debug/net7.0/projectFolder.dll # 実行
+```
+https://www.gitpod.io/docs/introduction/languages/dotnet
+
+# 20. 数値の演算と演算子
+特筆事項なし
+
+# 21. 文字列の連結とフォーマット
+```C#
+// 以下はすべて同等
+Debug.Log("Hello " + firstName + " " + familyName);
+Debug.Log(string.Format("Hello {0} {1}", firstName, familyName));
+// C# 6 以降
+Debug.Log($"Hello {firstName} {familyName}");
+```
+
+
+# 22. if文
+特筆事項なし
+
+# 23. switch文と演習
+特筆事項なし
+
+# 24. 繰り返し処理 whileとfor
+特筆事項なし
+
+# 25. 配列の基礎と応用
+java と殆ど変わらない
+* 宣言方法もほぼ同じ
+* インデックスは 0-origin
+
+
+# 26. Listとforeach
+```C#
+// プリミティブを型に指定できる
+List<int> numberList = new List<int>();
+int n = 3;
+while (n-- > 0) numberList.Add(n);
+// foreach はpython に似ている
+foreach (int number in numberList) {
+  Console.WriteLine(number);
+}
+```
+
+
+# 27. 関数（メソッド）の作成と応用
+特筆事項なし
