@@ -1,15 +1,14 @@
-# 資料
+# 000. 資料
 [Unity ゲーム開発：インディーゲームクリエイターが教える C#の基礎からゲームリリースまで【スタジオしまづ】](https://www.udemy.com/course/studio_shimazu_nfrpg/)
 
 
-# メモ本文
-# ~03. Unity のインストール
+# ~003. Unity のインストール
 学習用にaws workspace 用意しようとアカウントは作成したが、もろもろのツールインストールが面倒だった
 
 prawaki の環境で実施することにした
 
 
-# 04. Unity の初期設定
+# 004. Unity の初期設定
 Unity のインストールが完了したところから再開
 
 バージョンは、動画では最新を選択といわれたが、動画に合わせて2019.1.0f2 を選択した
@@ -19,7 +18,7 @@ Unity のインストールが完了したところから再開
 とりあえず、動画だけ先に進める
 
 
-# 05. VSCode のインストール
+# 005. VSCode のインストール
 * 12/02 今日のゴール：セクション7開始 ~ 完了
 
 プロジェクトの作成がまだなので、過去動画に戻って作成、この章自体は流し見する
@@ -38,18 +37,18 @@ project のパスが長すぎるとエラーになる、とあったが、上記
 インストール待ちの間、先の章を倍速で視聴しておく
 
 
-# 07. Unity でゲームを作るには
+# 007. Unity でゲームを作るには
 このレッスンでは基本的に、スクリプトからオブジェクトを操作する
 
 * GetComponent<T>
   - スクリプトをアタッチしているオブジェクトの T コンポーネントを取得する
 
 
-# 08. 最新バージョンでの修正
+# 008. 最新バージョンでの修正
 Text オブジェクトが UI>Legacy>Text に配置変更になった
 
 
-# 09. 表示される文字の変更
+# 009. 表示される文字の変更
 UI系のオブジェクトは、キャンバスオブジェクト配下に配置しないといけないみたい
 
 Scene ビューは、developer 向け？
@@ -61,10 +60,10 @@ Text コンポーネントの↓プロパティから操作できる
 * new Color(r, b, g, a);
 
 
-# 10. Image コンポーネントの操作
+# 010. Image コンポーネントの操作
 用語を以下のように統一
 * オブジェクト：Unity エディタ上での名称
-* コンポーネント：C# におけるクラス(GetComponent<T>など)
+* コンポーネント：C# 0におけるクラス(GetComponent<T>など)
 Image オブジェクトも、Canvas 配下に設置する
 
 適当な画像を2枚用意することになった、ミミッキュの画像をDLしてきた
@@ -80,13 +79,13 @@ Image オブジェクトも、Canvas 配下に設置する
 * Image.color で画像カラーの変更もできる
 
 
-# 11. HPバーの操作
+# 011. HPバーの操作
 09 で作成したスクリプトやオブジェクトは削除するみたい、なのでコミットもしなくていいかな。。
 
 Slider オブジェクトを作成して、適当なスクリプトをアタッチ
 
 
-# 12. 別オブジェクトの操作方法
+# 012. 別オブジェクトの操作方法
 他のオブジェクトのコンポーネントを取得する方法
 * 操作したいオブジェクトをアタッチ
   * 例えば、Player オブジェクトにPlayerHP オブジェクトをアタッチする、など
@@ -115,7 +114,7 @@ public class Player : MonoBehaviour
 ```
 
 
-# 13. 演習
+# 013. 演習
 今までの復習をかねた演習
 
 一旦動画を止めて、動画に出てきた成果物を作ることにした
@@ -157,30 +156,30 @@ public class Player : MonoBehaviour
 ```
 
 
-# 14. セクションのまとめ
+# 014. セクションのまとめ
 次の章から、C#の基礎について学習
 * 変数、if文、for文など。。
 
 
-# 15. ショートカットキーの解説
+# 015. ショートカットキーの解説
 レビューで、ショートカットキーを紹介して欲しいとあったため、追加したらしい
 
 
-# 16. C# の基礎：始めに
+# 016. C# 0の基礎：始めに
 演習課題が解けるなら、ここはスキップしてもOK
 
 
-# 17. コンソールとコメントアウト
+# 017. コンソールとコメントアウト
 ```C#
 // コメント
 Debug.Log("ログ出力、コンソールをクリックすると、該当のログ出力処理へコードジャンプできる");
 ```
 
-# 18. 変数の宣言
+# 018. 変数の宣言
 特筆事項なし
 
-# 19. 変数の型
-C# におけるstring も参照型だが、`string.Equals()`が`==`をオーバーライドしている
+# 019. 変数の型
+C# 0におけるstring も参照型だが、`string.Equals()`が`==`をオーバーライドしている
 
 そのため`==`でも比較が可能
 ```C#
@@ -192,40 +191,40 @@ https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/builtin-types
 
 また、gitpod におけるC#プロジェクトの実行方法は、
 ```bash
-dotnet biuld path/to/projectFolder # コンパイル
-dotnet path/to/projectFolder/bin/Debug/net7.0/projectFolder.dll # 実行
+dotnet biuld path/to/projectFolder # 0コンパイル
+dotnet path/to/projectFolder/bin/Debug/net7.0/projectFolder.dll # 0実行
 ```
 https://www.gitpod.io/docs/introduction/languages/dotnet
 
-# 20. 数値の演算と演算子
+# 020. 数値の演算と演算子
 特筆事項なし
 
-# 21. 文字列の連結とフォーマット
+# 021. 文字列の連結とフォーマット
 ```C#
 // 以下はすべて同等
 Debug.Log("Hello " + firstName + " " + familyName);
 Debug.Log(string.Format("Hello {0} {1}", firstName, familyName));
-// C# 6 以降
+// C# 06 以降
 Debug.Log($"Hello {firstName} {familyName}");
 ```
 
 
-# 22. if文
+# 022. if文
 特筆事項なし
 
-# 23. switch文と演習
+# 023. switch文と演習
 特筆事項なし
 
-# 24. 繰り返し処理 whileとfor
+# 024. 繰り返し処理 whileとfor
 特筆事項なし
 
-# 25. 配列の基礎と応用
+# 025. 配列の基礎と応用
 java と殆ど変わらない
 * 宣言方法もほぼ同じ
 * インデックスは 0-origin
 
 
-# 26. Listとforeach
+# 026. Listとforeach
 ```C#
 // プリミティブを型に指定できる
 List<int> numberList = new List<int>();
@@ -238,26 +237,26 @@ foreach (int number in numberList) {
 ```
 
 
-# 27. 関数（メソッド）の作成と応用
+# 027. 関数（メソッド）の作成と応用
 通例、メソッド名は大文字始まり(Pascal 形式)
 microsoft も[推奨している](https://learn.microsoft.com/ja-jp/dotnet/csharp/fundamentals/coding-style/coding-conventions)
 
 
-# 28. 【演習】nからmまでの偶数の和を求める関数を作成せよ
+# 028. 【演習】nからmまでの偶数の和を求める関数を作成せよ
 .NET プロジェクト`ExerciseProject/`を作成して、そこに解答
 
 
-# 29. 【演習】3のつく数字と3の倍数でアホになる演習問題
+# 029. 【演習】3のつく数字と3の倍数でアホになる演習問題
 .NET プロジェクト`ExerciseProject/`に解答
 
 12/06 答え合わせ
 
 
-# 30. classの作成と利用方法
+# 030. classの作成と利用方法
 特筆事項なし
 
-# 31. Propertyの作成と利用方法
-C# におけるアクセス修飾子の仕様は下記の通り
+# 031. Propertyの作成と利用方法
+C# 0におけるアクセス修飾子の仕様は下記の通り
 
 |呼び出し元の場所 | public | protected internal | protected | internal | private protected | private / 修飾子なし |
 |--|--|--|--|--|--|--|
@@ -298,11 +297,11 @@ Console.WriteLine(a.Name); // Bye
 ```
 
 
-# 32. ノンフィールドRPGを作るための基礎8つのテクニック：はじめに
+# 032. ノンフィールドRPGを作るための基礎8つのテクニック：はじめに
 この章は、2Dのターン制？ゲームの開発を行うための前準備
 
 
-# 33. シーンの移動
+# 033. シーンの移動
 ```C#
 using UnityEngine.SceneManagement;
 
@@ -316,18 +315,18 @@ public class Sample : MonoBehaviour
 ```
 
 
-# 34. ボタン入力の取得
+# 034. ボタン入力の取得
 * 適当なオブジェクトに、実行したいメソッドを記載したスクリプトをアタッチ
 * Button オブジェクトの On Click() プロパティに、オブジェクトをアタッチ、実行メソッドも指定する
   * Button オブジェクトにデフォルトでOn Click() プロパティが付与されている
 
 
-# 35. タップ入力の取得
+# 035. タップ入力の取得
 * 押した瞬間に発火する
   * ボタンは、押して離したときにonclickが発火する
 
 
-# 36. オブジェクトの非表示/表示/破壊
+# 036. オブジェクトの非表示/表示/破壊
 ```C#
 // [SerializeField] を付与すると、inspector から操作可能になる
 // public でもinspector から操作可能だが、他のオブジェクトから操作可能になるため、カプセル化の観点から良くない
@@ -341,7 +340,7 @@ public void OnClickButton()
 ```
 
 
-# 37. スクリプト上でのコンポーネントの取得と利用
+# 037. スクリプト上でのコンポーネントの取得と利用
 * 他のオブジェクトについているScriptを取得して実行する
 ```C#
 public class TestScript : MonoBehaviour
@@ -364,7 +363,7 @@ public class Presenter : MonoBehaviour
 ```
 
 
-# 38. Textオブジェクトの取得と変更
+# 038. Textオブジェクトの取得と変更
 スクリプト実行と同じ要領で実行できる
 ```C#
 public class Presenter : MonoBehaviour
@@ -379,13 +378,13 @@ public class Presenter : MonoBehaviour
 ```
 
 
-# 39. オブジェクトのプレファブ化
+# 039. オブジェクトのプレファブ化
 所謂テンプレート化
 * hierachy に作成したオブジェクトを、Project ビューにドラッグアンドドロップ
 * 自動的にプレハブになる
 
 
-# 40. オブジェクトの生成と親要素の変更（InstantiateとSetParent）
+# 040. オブジェクトの生成と親要素の変更（InstantiateとSetParent）
 スクリプトからオブジェクトを生成する方法
 ```C#
 // canvas オブジェクトをアタッチ
@@ -403,7 +402,7 @@ void Start()
 ```
 
 
-# 41. セーブとロード（PlayerPrefsの利用）
+# 041. セーブとロード（PlayerPrefsの利用）
 * リビルドしても、データが永続的に保存される
 * [レジストリ上に保存されるらしい](https://docs.unity3d.com/ja/2018.4/ScriptReference/PlayerPrefs.html)
 
@@ -419,7 +418,7 @@ PlayerPrefs.DeleteKey("SAVE_DATA");
 ```
 
 
-# 42. Json化（オブジェクトを文字列に変換）
+# 042. Json化（オブジェクトを文字列に変換）
 ```C#
 // json 化したいオブジェクトに付与が必要
 [Serializable]
@@ -450,3 +449,35 @@ public class Presenter : MonoBehaviour
 }
 ```
 
+
+# 043. （必須）追加版のお知らせ！
+* セクション7(44-60)はスキップして、セクション10以降を進めてほしい
+  * 応用が効かない部分があるから
+* ただ、全く使われないテクニックという訳でもないらしい
+
+
+# 073. 追加されたレクチャーの目的と解説
+* セクション7は2019年5月ごろに作成した
+  * ちょっと難易度が高かったらしい(オンラインサロン等での評判によると)
+* セクション7の差し替えになる
+* セクション12: フィールド移動など
+* セクション13: BGMなどの演出
+
+
+# 074 ターン制バトルの基礎 : 新規作成
+* 2D でプロジェクトを作成する必要があったので、リポジトリも新規で用意した
+* initial commit は空コミットにしておいた
+* この章では、次章以降で実装する処理をざっと確認した
+
+
+# 075. 攻撃の実装
+* バトル管理、キャラ管理スクリプトをそれぞれ作成して、責務を分担
+* 一旦Start() でAttack()を呼び出されるかの確認のみ
+
+
+# 076. ボタン入力による攻撃の実装
+* 上記を、ボタン操作で実行できるように修正
+
+
+# 077. HPが0になった場合のリスタート
+* 一時的な処理として、バトルが終了したら現在のシーンを再読み込みする実装
