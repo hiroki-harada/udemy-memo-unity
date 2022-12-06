@@ -185,8 +185,8 @@ C# におけるstring も参照型だが、`string.Equals()`が`==`をオーバ�
 そのため`==`でも比較が可能
 ```C#
 string message = "Hello, World!";
-Console.WriteLine(message.Equals("Hello, World!"));
-Console.WriteLine(message == "Hello, World!");
+Console.WriteLine(message.Equals("Hello, World!")); // True
+Console.WriteLine(message == "Hello, World!"); // True
 ```
 https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/builtin-types/built-in-types
 
@@ -239,4 +239,57 @@ foreach (int number in numberList) {
 
 
 # 27. 関数（メソッド）の作成と応用
+通例、メソッド名は大文字始まり(Pascal 形式)
+microsoft も[推奨している](https://learn.microsoft.com/ja-jp/dotnet/csharp/fundamentals/coding-style/coding-conventions)
+
+
+# 28. 【演習】nからmまでの偶数の和を求める関数を作成せよ
+.NET プロジェクト`ExerciseProject/`を作成して、そこに解答
+
+
+# 29. 【演習】3のつく数字と3の倍数でアホになる演習問題
+.NET プロジェクト`ExerciseProject/`に解答
+
+12/06 答え合わせ
+
+
+# 30. classの作成と利用方法
 特筆事項なし
+
+# 31. Propertyの作成と利用方法
+C# におけるアクセス修飾子の仕様は下記の通り
+
+|呼び出し元の場所 | public | protected internal | protected | internal | private protected | private / 修飾子なし |
+|--|--|--|--|--|--|--|
+|クラス内 | ✔️️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️|
+|派生クラス (同じアセンブリ) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌|
+|非派生クラス (同じアセンブリ) | ✔️ | ✔️ | ❌ | ✔️ | ❌ | ❌|
+|派生クラス (異なるアセンブリ) | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌|
+|非派生クラス (異なるアセンブリ) | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌|
+
+参考
+* [C# のクラス、構造体、レコードの概要>ユーザ補助](https://learn.microsoft.com/ja-jp/dotnet/csharp/fundamentals/object-oriented/#accessibility)
+* [アクセス修飾子](https://learn.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers)
+
+また、アクセッサは下記のように定義し、用いる
+```C#
+public class SampleClass
+{
+  private string _name = "Hello";
+
+  public string Name
+  {
+      get { return _name; }
+      set { _name = value; }
+  }
+}
+
+SampleClass a = new SampleClass();
+// 'SampleClass._name' is inaccessible due to its protection level
+Console.WriteLine(a._name);
+
+Console.WriteLine(a.Name); // Hello
+a.Name = "Bye";
+Console.WriteLine(a.Name); // Bye
+```
+

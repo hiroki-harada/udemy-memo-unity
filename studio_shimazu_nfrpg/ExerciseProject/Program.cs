@@ -48,3 +48,12 @@ foreach (int item in list)
 {
     Console.WriteLine(item);
 }
+
+
+
+// 31. Propertyの作成と利用方法
+SampleClass a = new SampleClass();
+// Console.WriteLine(a._name);
+Console.WriteLine(a.Name);
+a.Name = "xxx";
+Console.WriteLine(a.Name);
