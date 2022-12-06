@@ -299,7 +299,7 @@ Console.WriteLine(a.Name); // Bye
 
 
 # 32. ノンフィールドRPGを作るための基礎8つのテクニック：はじめに
-2Dのターン制？ゲームの開発を行う
+この章は、2Dのターン制？ゲームの開発を行うための前準備
 
 
 # 33. シーンの移動
@@ -374,6 +374,78 @@ public class Presenter : MonoBehaviour
   {
     Debug.Log("ボタンが押されたちょ");
     testText.text = "Shimazu";
+  }
+}
+```
+
+
+# 39. オブジェクトのプレファブ化
+所謂テンプレート化
+* hierachy に作成したオブジェクトを、Project ビューにドラッグアンドドロップ
+* 自動的にプレハブになる
+
+
+# 40. オブジェクトの生成と親要素の変更（InstantiateとSetParent）
+スクリプトからオブジェクトを生成する方法
+```C#
+// canvas オブジェクトをアタッチ
+[SerializeField] Transform parent;
+// Unity エディタ上では、プレハブをアタッチする
+[SerializeField] GameObject imagePrefab;
+void Start()
+{
+  // Objectの生成
+  GameObject image = Instantiate(imagePrefab);
+  // 第二引数で、相対位置の指定をリセット
+  // image は、Canvas を親要素に指定しないと表示されない
+  image.transform.SetParent(parent, false);
+}
+```
+
+
+# 41. セーブとロード（PlayerPrefsの利用）
+* リビルドしても、データが永続的に保存される
+* [レジストリ上に保存されるらしい](https://docs.unity3d.com/ja/2018.4/ScriptReference/PlayerPrefs.html)
+
+```C#
+// 保存
+string x = "冒険の書";
+PlayerPrefs.SetString("SAVE_DATA", x);
+PlayerPrefs.Save();
+// 取得
+Debug.Log(PlayerPrefs.GetString("SAVE_DATA"));
+// 削除
+PlayerPrefs.DeleteKey("SAVE_DATA");
+```
+
+
+# 42. Json化（オブジェクトを文字列に変換）
+```C#
+// json 化したいオブジェクトに付与が必要
+[Serializable]
+public class PlayerModel
+{
+  // json化したいフィールドに付与
+  [SerializeField]
+  int hp;
+  [SerializeField]
+  int at;
+  [SerializeField]
+  int currentStage;
+}
+
+public class Presenter : MonoBehaviour
+{
+  void Start()
+  {
+    PlayerModel player = new PlayerModel();
+
+    // object -> json
+    string jsonplayer = JsonUtility.ToJson(player);
+    Debug.Log(jsonplayer);
+
+    // json -> object
+    player = JsonUtility.FromJson<PlayerModel>(jsonplayer);
   }
 }
 ```
