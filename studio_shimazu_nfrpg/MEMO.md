@@ -282,6 +282,10 @@ public class SampleClass
       get { return _name; }
       set { _name = value; }
   }
+
+  // C# 6 以降
+  // https://learn.microsoft.com/ja-jp/dotnet/csharp/whats-new/csharp-version-history#c-version-60
+  public string Name { get; set; } = "Hello";
 }
 
 SampleClass a = new SampleClass();
@@ -291,5 +295,86 @@ Console.WriteLine(a._name);
 Console.WriteLine(a.Name); // Hello
 a.Name = "Bye";
 Console.WriteLine(a.Name); // Bye
+```
+
+
+# 32. ノンフィールドRPGを作るための基礎8つのテクニック：はじめに
+2Dのターン制？ゲームの開発を行う
+
+
+# 33. シーンの移動
+```C#
+using UnityEngine.SceneManagement;
+
+public class Sample : MonoBehaviour
+{
+  void Start()
+  {
+    SceneManager.LoadScene("Main");
+  }
+}
+```
+
+
+# 34. ボタン入力の取得
+* 適当なオブジェクトに、実行したいメソッドを記載したスクリプトをアタッチ
+* Button オブジェクトの On Click() プロパティに、オブジェクトをアタッチ、実行メソッドも指定する
+  * Button オブジェクトにデフォルトでOn Click() プロパティが付与されている
+
+
+# 35. タップ入力の取得
+* 押した瞬間に発火する
+  * ボタンは、押して離したときにonclickが発火する
+
+
+# 36. オブジェクトの非表示/表示/破壊
+```C#
+// [SerializeField] を付与すると、inspector から操作可能になる
+// public でもinspector から操作可能だが、他のオブジェクトから操作可能になるため、カプセル化の観点から良くない
+[SerializeField] GameObject image;
+public void OnClickButton()
+{
+    Debug.Log("ボタンが押されたちょ");
+    image.SetActive(false); // trueなら表示
+    Destroy(image); // 削除
+}
+```
+
+
+# 37. スクリプト上でのコンポーネントの取得と利用
+* 他のオブジェクトについているScriptを取得して実行する
+```C#
+public class TestScript : MonoBehaviour
+{
+  public void TestScriptText()
+  {
+    Debug.Log("TestScriptTextの実行");
+  }
+}
+
+public class Presenter : MonoBehaviour
+{
+  [SerializeField] TestScript testScript;
+  public void OnClickButton()
+  {
+    Debug.Log("ボタンが押されたちょ");
+    testScript.TestScriptText();
+  }
+}
+```
+
+
+# 38. Textオブジェクトの取得と変更
+スクリプト実行と同じ要領で実行できる
+```C#
+public class Presenter : MonoBehaviour
+{
+  [SerializeField] Text testText;
+  public void OnClickButton()
+  {
+    Debug.Log("ボタンが押されたちょ");
+    testText.text = "Shimazu";
+  }
+}
 ```
 
