@@ -563,3 +563,25 @@ prefab の編集
   * **new** string name とする必要がある
 
 
+# 091. PlayerとEnemyのステータスをUIに反映
+* バトル結果をログ出力 -> UI に反映　に変更
+* PlayerManager から、UIManager を操作する
+* Enemy も同様
+
+
+
+# 092. 対戦の初期設定と攻撃実装
+* Attack() と　UpdateUI() を適当なメソッドでラップする
+* PlayerManager に SetUp() を作成して、初期値の設定を行う
+  * Enemy も同様
+
+
+# 093. QuestManagerによるBattleの開始
+* EncountEnemy() で生成した敵をSetUp()に渡す
+
+
+# 094. Enemyをクリックしたときに攻撃を実装
+* BattleManager 上で、Player.Attack() と Enemy.OnClck()をマッピングする
+* Action でメソッドの受け渡しを行う
+
+
