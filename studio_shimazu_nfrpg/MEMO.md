@@ -534,3 +534,32 @@ Button
 * Assets/Prefabs を切って、プレハブを配置する
 
 
+# 087. 進行ボタンの表示/非表示
+* StageManager から、Button objectを操作する
+* 表示/非表示の切り替えメソッドは、共通化できるが、ここではしない
+
+
+# 088. Enemyのクリック検出
+必要な手続き
+* 当たり判定
+* ray を検出するカメラ　<=??
+* 発火させるメソッド
+
+prefab の編集
+* prefab > open prefab でprefab 本体にcollider などを付与できる
+* EnemyManager を用意して、onclickメソッドを付与する
+* prefab > eventTrigger に、onclick 処理として自分自身のonclickメソッドを発火させる
+
+
+# 089. PlayerUIとEnemyUIの作成
+* それぞれcanvas を用意する
+  * PlayerUICanvas : HP, AT のテキスト
+  * EnemyUICanvas : HP, Name のテキスト
+* それぞれの canvas>text を更新するスクリプトを用意する
+
+
+# 090. BattleManagerの作成
+* name 変数は、オブジェクトの名称を格納した変数として登録されている？
+  * **new** string name とする必要がある
+
+
