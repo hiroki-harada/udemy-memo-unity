@@ -3,19 +3,14 @@
 
 
 # ~003. Unity のインストール
-学習用にaws workspace 用意しようとアカウントは作成したが、もろもろのツールインストールが面倒だった
-
-prawaki の環境で実施することにした
+* aws workspace に、諸々のツールインストールを実施
 
 
 # 004. Unity の初期設定
-Unity のインストールが完了したところから再開
-
-バージョンは、動画では最新を選択といわれたが、動画に合わせて2019.1.0f2 を選択した
-
-使用するエディタの設定などを行う、ただUnity のインストールが完了していない
-
-とりあえず、動画だけ先に進める
+* Unity のインストールが完了したところから再開
+* バージョンは、動画では最新を選択といわれたが、動画に合わせて2019.1.0f2 を選択した
+* 使用するエディタの設定などを行う、ただUnity のインストールが完了していない
+* とりあえず、動画だけ先に進める
 
 
 # 005. VSCode のインストール
@@ -27,14 +22,11 @@ Unity のインストールが完了したところから再開
 * failed to resolve project template com.unity.template.3d
 
 もしかしたら、最新のLTS Unity を使用した方が良いかもしれないと思いつつ、原因を調べる
-
-unity hub をダウングレードする方法があったが、その方法は取りたくないので、それ以外の解決策を探す
-
-project のパスが長すぎるとエラーになる、とあったが、上記のエラー文と一致しない(decompressと表示されるらしい)
+* unity hub をダウングレードする方法があったが、その方法は取りたくないので、それ以外の解決策を探す
+* project のパスが長すぎるとエラーになる、とあったが、上記のエラー文と一致しない(decompressと表示されるらしい)
 
 最新のLTS をインストールすることにした(2021.3.15f1)
-
-インストール待ちの間、先の章を倍速で視聴しておく
+* インストール待ちの間、先の章を倍速で視聴しておく
 
 
 # 007. Unity でゲームを作るには
@@ -49,9 +41,8 @@ Text オブジェクトが UI>Legacy>Text に配置変更になった
 
 
 # 009. 表示される文字の変更
-UI系のオブジェクトは、キャンバスオブジェクト配下に配置しないといけないみたい
-
-Scene ビューは、developer 向け？
+* UI系のオブジェクトは、キャンバスオブジェクト配下に配置しないといけないみたい
+* Scene ビューは、developer 向け？
 
 07 に習って、テキストを操作するときは、GetComponent<Text> (Text オブジェクトが返る)
 
@@ -179,9 +170,8 @@ Debug.Log("ログ出力、コンソールをクリックすると、該当のロ
 特筆事項なし
 
 # 019. 変数の型
-C# 0におけるstring も参照型だが、`string.Equals()`が`==`をオーバーライドしている
-
-そのため`==`でも比較が可能
+* C# 0におけるstring も参照型だが、`string.Equals()`が`==`をオーバーライドしている
+* そのため`==`でも比較が可能
 ```C#
 string message = "Hello, World!";
 Console.WriteLine(message.Equals("Hello, World!")); // True
@@ -204,7 +194,7 @@ https://www.gitpod.io/docs/introduction/languages/dotnet
 // 以下はすべて同等
 Debug.Log("Hello " + firstName + " " + familyName);
 Debug.Log(string.Format("Hello {0} {1}", firstName, familyName));
-// C# 06 以降
+// C# 6 以降
 Debug.Log($"Hello {firstName} {familyName}");
 ```
 
@@ -238,8 +228,8 @@ foreach (int number in numberList) {
 
 
 # 027. 関数（メソッド）の作成と応用
-通例、メソッド名は大文字始まり(Pascal 形式)
-microsoft も[推奨している](https://learn.microsoft.com/ja-jp/dotnet/csharp/fundamentals/coding-style/coding-conventions)
+* 通例、メソッド名は大文字始まり(Pascal 形式)
+* microsoft も[推奨している](https://learn.microsoft.com/ja-jp/dotnet/csharp/fundamentals/coding-style/coding-conventions)
 
 
 # 028. 【演習】nからmまでの偶数の和を求める関数を作成せよ
@@ -256,7 +246,7 @@ microsoft も[推奨している](https://learn.microsoft.com/ja-jp/dotnet/cshar
 特筆事項なし
 
 # 031. Propertyの作成と利用方法
-C# 0におけるアクセス修飾子の仕様は下記の通り
+C# におけるアクセス修飾子の仕様は下記の通り
 
 |呼び出し元の場所 | public | protected internal | protected | internal | private protected | private / 修飾子なし |
 |--|--|--|--|--|--|--|
