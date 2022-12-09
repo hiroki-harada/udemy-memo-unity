@@ -648,3 +648,66 @@ prefab の編集
 * image > set native size で画像本来？のサイズで表示される
 
 
+# 102. BGMのならし方
+下記から素材を取得
+* [BGM](https://maoudamashii.jokersounds.com/list/bgm10.html)
+  * タイトル（ファンタジー14）
+  * クエスト（ファンタジー09）
+  * 対戦（ファンタジー12）
+
+* [タウン（街24）](https://maoudamashii.jokersounds.com/list/game9.html)
+
+* Audio Source オブジェクトを作成して、Audio clip プロパティに取得したBGMを設定する
+
+
+# 103. SEのならし方
+下記から素材を取得
+  * [ボタン(button01a)](https://taira-komori.jpn.org/game01.html)
+  * [攻撃（重打１）](https://taira-komori.jpn.org/attack01.html)
+  * [ゲームクリア](https://maoudamashii.jokersounds.com/archives/game_maoudamashii_9_jingle09.html)
+
+* Audio Source にスクリプトを設定して、そこからSEを操作
+```C#
+public AudioSource audioSourceSE; // SEのスピーカー
+public AudioClip audioClip; // ならす素材
+
+public void PlaySE()
+{
+  audioSourceSE.PlayOneShot(audioClip); // SEを一度だけならす
+}
+```
+* ただ、シーンをまたぐタイミングでAudio Sourceは破壊？される
+* 音を鳴らそうとしても、鳴らすオブジェクトがない
+
+
+# 104. シングルトンの解説
+* 103 を解決するために、オブジェクトをシーン間で共有する必要がある
+* それをシングルトンで解決する
+```C#
+public static ClassName instance;
+private void Awake()
+{
+  if (instance == null)
+  {
+    instance = this;
+    DontDestroyOnLoad(this.gameObject);
+  }
+  else
+  {
+    Destroy(this.gameObject);
+  }
+}
+```
+
+
+# 105. シングルトンを使ったBGMのならし方
+* 104 の方法を元に、BGM, SE の実装
+* プロパティを配列で宣言すると、複数オブジェクトをアタッチできる
+  * 今回は、SEを複数アタッチ
+
+
+# 106. SEを各シーンに設定
+* SEもManagerスクリプトを用意して管理するよう、鳴らし方を変更する
+* ＞依存関係が複雑になってきているので、後でリファクタする
+
+
