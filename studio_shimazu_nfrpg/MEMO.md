@@ -497,6 +497,7 @@ Button
 # 081. ボタン入力による進行度の増加をログで実装
 * 空オブジェクトにQuestManager スクリプトをアタッチ
 * ボタンを押したときに発火させるメソッドを用意して、ログを吐かせる
+  * Event System オブジェクトが存在している必要がある
 
 
 # 082. 進行度の増加をUIに反映
@@ -538,7 +539,7 @@ Button
 prefab の編集
 * prefab > open prefab でprefab 本体にcollider などを付与できる
 * EnemyManager を用意して、onclickメソッドを付与する
-* prefab > eventTrigger に、onclick 処理として自分自身のonclickメソッドを発火させる
+* prefab > eventTrigger に、onclick 処理として自分自身のonclickメソッドを登録し、発火させる
 
 
 # 089. PlayerUIとEnemyUIの作成
@@ -611,5 +612,39 @@ prefab の編集
 
 * 小ネタ
   * コンポーネントの ⋮ から copy component でサイズや位置などの情報をまとめてコピーできる
+
+
+# 099. ノンフィールドRPGの応用：背景画像の取得と設定
+* Assets/Images に画像を配置する
+  * qiita資料に添付のリンク先、フリー素材を使用
+  * 森の画像だけリンク切れで取得できなかったので、[フリー素材を探して使用](https://www.ac-illust.com/main/search_result.php?word=%E6%B4%9E%E7%AA%9F)
+* hierachy ビューにドラッグアンドドロップでscene に配置できる
+* 拡大/縮小は、なるべくpixel per unit から行う
+
+＞画像の解像度が荒くあまり綺麗にならなかったが、一旦このまま進める
+
+
+# 100. UI画像の設定
+* fantasy wooden ... を Assets store からDL
+
+* Button > source image にAsset から画像を設定できる
+* テキストの背景に画像を設定したい場合は、image でTextをラップして、image に画像を設定する
+  * ＞各sceceでtextに画像をラップしていたが、prefabを作成したほうが簡単そう
+  * ＞ボタン用とステータス等のテキスト表示用で、2パターンprefabを作ってみたい
+
+* prefab に関数を登録する方法
+  1. スクリプトをアタッチしたオブジェクトを対象のprefab にアタッチする
+    * 通常のオブジェクトの設定方法を同じ
+    * ボタンのonclick に、関数をアタッチしたオブジェクトを登録する、など
+  2. EventListener を付与して、スクリプトをアタッチする
+    * 088. Enemyのクリック検出を参考
+
+画像の表示順番について
+* order in layerが大きいほど、前面に表示される
+
+
+# 101. ゲームクリア画像の設定
+クエストクリア時の画像を取得(いらすとや)
+* image > set native size で画像本来？のサイズで表示される
 
 
