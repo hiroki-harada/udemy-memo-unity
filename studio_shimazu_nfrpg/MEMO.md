@@ -711,3 +711,37 @@ private void Awake()
 * ＞依存関係が複雑になってきているので、後でリファクタする
 
 
+# 107. BGMの停止
+* ちょっとした修正、クエストをクリアしたらBGMを止める
+```C#
+AudioSource.Stop();
+```
+
+
+# 108. コルーチンの実装
+* 処理実行にラグを持たせるため、コルーチンを利用する
+* ↓サンプル
+```C#
+private void Start()
+{
+  enemyUI.gameObject.SetActive(false);
+  // IEnumerator を返すメソッドを、StartCoroutine の引数に渡す
+  StartCoroutine(SampleCol());
+}
+
+// IEnumerator を返す
+IEnumerator SampleCol()
+{
+  Debug.Log("コルーチン開始");
+  yield return new WaitForSeconds(2f);
+  Debug.Log("２秒経過");
+}
+```
+
+
+# 109. コルーチンを使った攻撃の実装
+* プレイヤーの攻撃から敵の攻撃まで、1秒ラグを持たせてみる
+* プレイヤーの攻撃前に、コルーチンを一旦停止させる
+  * ＞ボタン連打された場合、コルーチンが複数発火するとよくないらしい
+
+
