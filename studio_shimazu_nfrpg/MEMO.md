@@ -745,3 +745,24 @@ IEnumerator SampleCol()
   * ＞ボタン連打された場合、コルーチンが複数発火するとよくないらしい
 
 
+# 110. DoTweenの導入
+* DoTween のインポート
+* ＞unity developer なら必ず使っている位、有名なasset らしい
+
+
+# 111. ダメージアニメーションの実装
+* 敵オブジェクトのtransformを振動させる
+* プレイヤーオブジェクトについては、カメラを振動させる
+```C#
+using DG.Tweening;
+
+// ↓に適当なパラメータを指定して、オブジェクトの振動制御
+transform.DOShakePosition();
+```
+
+
+# 112. 敵を撃破したときの処理を遅らせる
+* よりゲーム性をもたせるため、ちょっとした修正
+* EndGame() も IEnumerator を返すようにする
+
+
