@@ -799,3 +799,18 @@ transform.DOShakePosition();
   * 使用するエフェクトについては、5:20 を見ること
 
 
+# 117. タイトルでのフェードインフェードアウト
+* シーン切り替え時の演出を調整
+  * 下地となる Canvas を新規作成して、Canvas Group を付与
+  * ＞新規作成した FadeIOManager で制御していたが、SceneTransiotionManager でやりたい
+  * canvas の優先度関係は、Canvas>sort order で制御する
+  * 優先度がより低いcanvas に存在するボタンオブジェクト等は、クリックできなくなる
+  * block raycast のフラグを折れば、クリック可能になる
+
+
+# 118. シーン間でのフェードインアウト
+* シングルトンを使用して、シーンを　跨いでもfade in/out できるようにする
+* また、fade in/out の前後でシーンの切り替えを行う
+* ＞SceneTransiotionManager に処理を集約させるのが難しかったので、一旦テキスト通りに実装
+
+
