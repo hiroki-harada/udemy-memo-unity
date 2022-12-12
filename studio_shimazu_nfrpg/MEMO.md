@@ -785,3 +785,17 @@ transform.DOShakePosition();
   * 名称が異なるが、Cartoon FX Remaster Free を入れる
 
 
+# 116. HitEffectの実装
+* サンプルの prefab を改造する
+  * サンプル等の prefab をカスタマイズして prefab にしたいとき
+    * 一度unpack prefab する
+    * unity 2021.3.15f の場合、prefab>unpack
+
+* ＞effect の発生個所を調整する処理は入れない
+  * ＞クリック個所にエフェクトを出す実装に変えたい
+  * ＞PlayerManager で実装することになりそう
+
+* ＞最初に設定したエフェクトをすぐに変更している
+  * 使用するエフェクトについては、5:20 を見ること
+
+
