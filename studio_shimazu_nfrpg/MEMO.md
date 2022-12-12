@@ -766,3 +766,22 @@ transform.DOShakePosition();
 * EndGame() も IEnumerator を返すようにする
 
 
+# 113. 背景フェード
+* 画像オブジェクト(jpg/png etc.)の
+  * transform を操作する
+  * SpriteRenderer コンポーネントを取得して操作する
+
+
+# 114. 敵に遭遇するタイミングを遅らせる
+* NextButton() の背景フェード処理を切り出して、IEnumerator でラップする
+  * ただ、この状態だとnextボタン連打の対策ができていない
+* NextButton() 発火時に、探索ボタンを非表示にする
+* クエストクリア/敵にエンカウント以外の場合に、探索ボタンを表示する
+
+
+# 115. Effectのインポート
+* 敵をクリックしたときのエフェクトを設定する
+* Asset store から取得
+  * 名称が異なるが、Cartoon FX Remaster Free を入れる
+
+
