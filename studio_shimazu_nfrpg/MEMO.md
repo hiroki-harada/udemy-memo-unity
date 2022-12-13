@@ -828,7 +828,6 @@ transform.DOShakePosition();
 * ダイアログ表示
   * DialogTextManager のシングルトン経由で、テキストを表示する
   * ＞適当な処理で、各自テキストを設定する
-  * ＞テキストが表示される前にボタンを押すと、runtimeerror が発生するバグがありそう。。
 
 ＞また、複数行表示には、バーバティムシンボルを使用できる
 ```C#
@@ -846,6 +845,31 @@ class MultilineString
 }
 ```
 
+* バグ？
+  * ＞テキストが表示される前にボタンを押すと、runtimeerror が発生するバグがありそう。。
+  * ＞敵を倒した後でも、同じ個所でエラーが発生している
+```log
+ArgumentOutOfRangeException: Length cannot be less than zero.
+Parameter name: length
+System.String.Substring (System.Int32 startIndex, System.Int32 length) (at <d6232873609549b8a045fa15811a5bd3>:0)
+DialogTextManager.Update () (at Assets/Scripts/DialogTextManager.cs:79)
+```
+DialogTextManager の実装を確認した
+```C#
+void Update()
+{
+  // 中略
+  int displayCharacterCount = (int)(Mathf.Clamp01((Time.time - timeElapsed) / timeUntilDisplay) * currentText.Length);
+  if (displayCharacterCount != lastUpdateCharacter)
+  {
+    uiText.text = currentText.Substring(0, displayCharacterCount); // displayCharacterCount = 0 になっているのが原因
+    lastUpdateCharacter = displayCharacterCount;
+  }
+  CheckCompletedText(); // 1/16 追加:
+}
+```
+修正方法がパッと思いつかないので、一旦保留にする
+
 
 # 120. ダメージ値を考慮したテキスト送り
 * 119 で設定したダイアログに、ダメージ値を埋め込む
@@ -855,4 +879,17 @@ class MultilineString
   * 遭遇するモンスターの種類を増やす
   * データ管理方法を変更する
 
+
+# 121. 紹介編：Playerの初期ステータス&死亡時の処理
+* Playerの初期ステータスが、探索中と戦闘中で不整合があるらしい
+* 演習課題として、次のセクションで解説
+
+
+# 122. 解決編：Playerの初期ステータス&死亡時の処理
+* 121 の回答編
+* ＞だいたい予想通りの回答だった
+
+
+# 123. ボーナスレクチャー：終わりに
+* オンラインサロンの紹介
 
