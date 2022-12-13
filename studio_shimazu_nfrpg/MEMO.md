@@ -814,3 +814,45 @@ transform.DOShakePosition();
 * ＞SceneTransiotionManager に処理を集約させるのが難しかったので、一旦テキスト通りに実装
 
 
+# 119. テキスト送りの実装(10:50)
+* スクリプトについては、補助資料のクラスをそのまま使用する
+  * コードの説明なし、自分で読み解いてほしい
+  * ＞基本的には、何かしらツールを使用するケースのため
+
+* UI
+  * Canvas > Panel > Text
+  * Canvas にスクリプトをアタッチ
+  * テキストサイズや間隔は適当に調整
+  * ＞ダイアログパネルが若干透けているが、一旦このまま進める
+
+* ダイアログ表示
+  * DialogTextManager のシングルトン経由で、テキストを表示する
+  * ＞適当な処理で、各自テキストを設定する
+  * ＞テキストが表示される前にボタンを押すと、runtimeerror が発生するバグがありそう。。
+
+＞また、複数行表示には、バーバティムシンボルを使用できる
+```C#
+using System;
+using System.IO;
+class MultilineString
+{
+  static void Main()
+  {
+    string multiline = @"My name is Sarah.
+    I am a girl.
+    I am happy.";
+    Console.WriteLine(multiline);
+  }
+}
+```
+
+
+# 120. ダメージ値を考慮したテキスト送り
+* 119 で設定したダイアログに、ダメージ値を埋め込む
+* 与えたダメージをAttack() から返すようにする
+
+* 改良ポイント
+  * 遭遇するモンスターの種類を増やす
+  * データ管理方法を変更する
+
+
