@@ -446,6 +446,50 @@ public class Presenter : MonoBehaviour
 * ただ、全く使われないテクニックという訳でもないらしい
 
 
+# 061. GooglePlayへのリリース：はじめに
+* GooglePlayへのリリースは、Windows/Mac 両方実施できる
+* 基本的に、補助資料に従って進める
+
+* ＞実機動確については、[公式ドキュメント](https://docs.unity3d.com/ja/2021.3/Manual/android-sdksetup.html)にも記載があったので確認する
+* ＞他参考
+  * ＞[Windows と Unity の環境で Android 実機テストをする方法](https://iucstscui.hatenablog.com/entry/2022/02/21/080000)
+
+
+# 062. apkファイルの作成（ビルド）
+* File > BuildSettings
+  * Platform で Android を選択しSwitch Platform
+  * Player Setting > 以下設定
+    * CampanyName：個人名も可らしい
+    * ProductName：ゲーム名
+  * Publishing Settings > KeystoreManager > create new から新規作成
+  * 適当なディレクトリに保存する
+    * Key Value は適当に設定
+  * other settings 以下
+    * Package Name を上記に合わせる
+    * Target Architectures : ARM64 にチェック
+* Build 実行
+
+
+# 063. デベロッパー登録
+* google アカウントデベロッパー契約に同意して、クレジット情報を登録する
+
+
+# 064. アプリ掲載情報の登録
+* ストアの掲載情報
+  * 仮置きで設定してOKらしい
+    * アイコン等は、テンプレートから選択して作成できる
+      * figma を使用すると楽
+
+
+# 065. Google Play に.apkファイルを提出（リリース）
+* β/α版としてのリリースもできるけど、製品版としてリリースする想定で説明
+* ストアの掲載情報をすべて記載終わったら、アプリのリリース から、公開ができる
+
+
+# 066-072. AppStoreへのリリース
+* ＞MacPC がないと限定のため、スキップ
+
+
 # 073. 追加されたレクチャーの目的と解説
 * セクション7は2019年5月ごろに作成した
   * ちょっと難易度が高かったらしい(オンラインサロン等での評判によると)
