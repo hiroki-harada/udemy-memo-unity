@@ -466,6 +466,7 @@ public class Presenter : MonoBehaviour
     * Key Value は適当に設定
   * other settings 以下
     * Package Name を上記に合わせる
+    * Scriptiong　Backend : IL2CPP
     * Target Architectures : ARM64 にチェック
 * Build 実行
 
@@ -936,4 +937,3 @@ void Update()
 
 # 123. ボーナスレクチャー：終わりに
 * オンラインサロンの紹介
-
