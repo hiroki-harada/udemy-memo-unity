@@ -476,6 +476,7 @@ public class Presenter : MonoBehaviour
 * 登録時に 25USD が必要
 
 
+
 # 064. アプリ掲載情報の登録
 * ストアの掲載情報
   * 仮置きで設定してOKらしい
