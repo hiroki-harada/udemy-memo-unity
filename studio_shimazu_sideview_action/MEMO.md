@@ -12,11 +12,17 @@
 
 
 # 043. 追加動画(Unity2019.2以上) Tile Paletteの追加
-
+* tile pallete が、package manager からのimport対象になっているらしい
 
 
 # 044. 素材のインポートとマリオメーカーのようなステージ作成
-
+* 初期設定
+  * 2D
+  * Asset store: Sunny Land
+  * Hierachy
+    * 2D Object > Tilemap オブジェクトを追加
+  * Window > 2D > Tile pallete
+    * Asset/Tiles/ を切って tile を追加する
 
 
 # 045. Playerの作成
